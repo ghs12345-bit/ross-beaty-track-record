@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ross J. Beaty 生涯与观点演变研究报告</title>
+<style>
+  :root {
+    --navy: #14395e;
+    --navy-2: #1d4e7d;
+    --copper: #b8762a;
+    --gold: #c9862a;
+    --ink: #1f2933;
+    --ink-2: #3e4c59;
+    --muted: #6b7a8a;
+    --line: #e3e8ee;
+    --bg: #ffffff;
+    --bg-soft: #f6f8fa;
+    --quote-bg: #f0f4f8;
+    --quote-border: #1d4e7d;
+    --ok: #1a7f37;
+    --warn: #b45309;
+    --bad: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: var(--ink); background: var(--bg-soft); line-height: 1.75; font-size: 15.5px;
+  }
+  .masthead {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, #2a5f8f 100%);
+    color: #fff; padding: 44px 48px 40px;
+  }
+  .masthead .kicker { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #c9d8e8; margin-bottom: 10px; font-weight: 600; }
+  .masthead h1 { margin: 0 0 12px; font-size: 30px; line-height: 1.3; font-weight: 700; letter-spacing: .5px; }
+  .masthead .subtitle { font-size: 16px; color: #d7e3ef; max-width: 900px; }
+  .masthead .meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 13.5px; color: #c3d4e4; }
+  .masthead .meta b { color: #fff; font-weight: 600; }
+
+  .layout { display: flex; align-items: flex-start; max-width: 1240px; margin: 0 auto; }
+  .sidebar {
+    position: sticky; top: 0; align-self: flex-start; width: 264px; flex-shrink: 0;
+    padding: 26px 10px 40px 24px; max-height: 100vh; overflow-y: auto;
+  }
+  .sidebar .toc-title { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 0 0 10px 12px; }
+  .sidebar a { display: block; color: var(--ink-2); text-decoration: none; font-size: 13.5px; padding: 7px 12px; border-radius: 7px; border-left: 3px solid transparent; transition: all .15s; }
+  .sidebar a:hover { background: #eaf0f6; color: var(--navy); }
+  .sidebar a.active { background: #e5edf5; color: var(--navy); font-weight: 600; border-left-color: var(--copper); }
+  .sidebar .toc-note { font-size: 12px; color: var(--muted); background: #fff8ec; border: 1px dashed #e8d5ae; border-radius: 8px; padding: 8px 12px; margin: 14px 0; }
+
+  .main { flex: 1; min-width: 0; padding: 36px 48px 80px; }
+  section.chapter { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 30px 34px; margin-bottom: 26px; box-shadow: 0 1px 3px rgba(20,57,94,.05); }
+  h2 { font-size: 22px; color: var(--navy); margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--line); scroll-margin-top: 16px; }
+  h2 .zh-num { color: var(--copper); font-weight: 800; margin-right: 6px; }
+  h3 { font-size: 17px; color: var(--navy-2); margin: 24px 0 10px; }
+  h4 { font-size: 15px; color: var(--ink); margin: 18px 0 8px; }
+  p { margin: 10px 0; }
+  ul, ol { margin: 10px 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  strong { color: var(--navy); }
+  a { color: var(--navy-2); }
+
+  blockquote.quote { margin: 16px 0; padding: 16px 20px 16px 22px; background: var(--quote-bg); border-left: 4px solid var(--quote-border); border-radius: 0 9px 9px 0; }
+  blockquote.quote .en { font-style: italic; color: var(--ink-2); margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 15px; }
+  blockquote.quote .zh { margin: 0; color: var(--ink); font-weight: 500; }
+  blockquote.quote .zh::before { content: "【译】"; color: var(--copper); font-weight: 700; margin-right: 4px; font-size: 13px; }
+  .en-inline { font-style: italic; color: var(--ink-2); font-family: Georgia, "Times New Roman", serif; }
+  .zh-inline { color: var(--ink); }
+
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+  th { background: #eef3f8; color: var(--navy); font-weight: 700; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody tr:hover { background: #f2f6fa; }
+
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .tag.ok { background: #e6f4ea; color: var(--ok); }
+  .tag.warn { background: #fdf1e3; color: var(--warn); }
+  .tag.bad { background: #fdeaea; color: var(--bad); }
+
+  .callout { background: #fdf7ee; border: 1px solid #f0ddbc; border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  .callout .label { font-weight: 700; color: var(--copper); font-size: 13px; letter-spacing: 1px; }
+
+  .stage { border: 1px solid var(--line); border-left: 4px solid var(--copper); border-radius: 0 9px 9px 0; padding: 12px 16px; margin: 10px 0; background: #fff; }
+  .stage .yr { font-weight: 700; color: var(--copper); }
+
+  /* 五段时间轴横幅 */
+  .timeline-bar { display: flex; gap: 8px; margin: 18px 0; flex-wrap: wrap; }
+  .timeline-bar .seg { flex: 1; min-width: 130px; padding: 12px 14px; border-radius: 10px; color: #fff; }
+  .timeline-bar .seg .t { font-weight: 700; font-size: 14px; }
+  .timeline-bar .seg .d { font-size: 12px; opacity: .9; margin-top: 3px; }
+  .seg-1 { background: #14395e; } .seg-2 { background: #1d4e7d; } .seg-3 { background: #2a5f8f; }
+  .seg-4 { background: #b8762a; } .seg-5 { background: #8a5a20; }
+
+  /* 生命周期流程 */
+  .lifecycle-flow { display: flex; gap: 6px; margin: 12px 0; flex-wrap: wrap; }
+  .lc-step { flex: 1; min-width: 100px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; text-align: center; font-size: 13px; }
+  .lc-step .k { font-weight: 700; color: var(--navy); font-size: 12px; display: block; }
+  .lc-arrow { align-self: center; color: var(--copper); font-weight: 700; }
+
+  .footnote { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; }
+    .sidebar { position: static; width: 100%; max-height: none; padding: 16px 20px; }
+    .main { padding: 20px 18px 60px; }
+    .masthead { padding: 30px 22px; }
+    .masthead h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="kicker">Internal Research · 矿业人物观点调研（重做版）</div>
+  <h1>Ross J. Beaty 生涯与观点演变研究报告</h1>
+  <div class="subtitle">以生涯五段为叙事主轴，贯穿时间线地梳理其投资理念、司法辖区（选矿）、品种偏好、对中国态度、择时判断的演变，最终落到 2026 年当下观点总结；并以核心资产的「介入→去风险→出售」全生命周期作为理念实证。</div>
+  <div class="meta">
+    <span>调研对象：<b>Ross J. Beaty</b>（1951 年生，加拿大地质学家）</span>
+    <span>调研日期：<b>2026-09-03</b></span>
+    <span>服务项目：<b>洛阳钼业 CMOC 投资研究</b></span>
+    <span>团队：<b>5 搜集 agent + 整合 + 撰写</b></span>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="sidebar" id="toc">
+    <div class="toc-title">目录</div>
+    <a href="#ch0">〇 本报告如何读</a>
+    <a href="#ch1">一 六条演变主线</a>
+    <a href="#ch2">二 第一阶段 1980–1994</a>
+    <a href="#ch3">三 第二阶段 1994–2005</a>
+    <a href="#ch4">四 第三阶段 2005–2010</a>
+    <a href="#ch5">五 第四阶段 2010–2024</a>
+    <a href="#ch6">六 第五阶段 2024–2026</a>
+    <a href="#ch7">七 对中国与中资买家</a>
+    <a href="#ch8">八 当下观点总览 2026</a>
+    <a href="#ch9">九 资产全生命周期附录</a>
+    <a href="#ch10">十 矛盾点与不确定性</a>
+    <a href="#ch11">十一 高价值信源清单</a>
+    <div class="toc-note">三条纪律：①时间线贯穿所有主题 ②每条观点带日期+✅/⚠️/❌有效性 ③资产全生命周期是观点实证。</div>
+  </nav>
+
+  <main class="main">
+
+    <!-- 〇 -->
+    <section class="chapter" id="ch0">
+      <h2><span class="zh-num">〇</span>本报告如何读（方法论）</h2>
+      <p>这是一份以<strong>生涯五段为叙事主轴</strong>的观点研究报告，核心目标是回答：<strong>Ross Beaty 四十年来「怎么想、怎么做、观点怎么变、现在怎么想」？</strong></p>
+      <p>三条纪律：</p>
+      <ol>
+        <li><strong>时间线贯穿所有主题</strong>：投资理念、司法辖区（选矿）、品种偏好、对中国、择时——每个主题都按「早期怎么想 → 中间怎么变 → 当下怎么想」展开。</li>
+        <li><strong>每条观点强制标注时间 + 有效性三态</strong>：<span class="tag ok">✅ 仍有效</span> / <span class="tag warn">⚠️ 语境限制或已变化</span> / <span class="tag bad">❌ 已被推翻</span>。旧观点不等于当前观点。</li>
+        <li><strong>资产全生命周期是观点的实证投影</strong>：某个矿「何时介入 → 做了什么去风险 → 何时准备出售 → 最终出售/未出售」，才是他理念最硬的证据。</li>
+      </ol>
+      <div class="timeline-bar">
+        <div class="seg seg-1"><div class="t">① 1980–1994</div><div class="d">创业与首度退出</div></div>
+        <div class="seg seg-2"><div class="t">② 1994–2005</div><div class="d">白银龙头 + 铜熊市抄底</div></div>
+        <div class="seg seg-3"><div class="t">③ 2005–2010</div><div class="d">平台化 + 密集退出</div></div>
+        <div class="seg seg-4"><div class="t">④ 2010–2024</div><div class="d">规模整合与上市</div></div>
+        <div class="seg seg-5"><div class="t">⑤ 2024–2026</div><div class="d">主动退出收官</div></div>
+      </div>
+      <p class="footnote">五段分期已与用户确认；选矿（司法辖区）板块不单开章，而是拆入五段、贯穿时间线。</p>
+    </section>
+
+    <!-- 一 -->
+    <section class="chapter" id="ch1">
+      <h2><span class="zh-num">一</span>贯穿全文的六条「演变主线」（先看结论）</h2>
+
+      <h3>主线 1 · 投资理念：从「博发现」到「纪律化资本配置」</h3>
+      <p>早期「广撒网博发现 + 讲故事融资」→ 中期「熊市抄底 + 收购-去风险-出售」→ 晚期「整合 roll-up + 现金流 + 股东回报」。</p>
+
+      <h3>主线 2 · 司法辖区（选矿）：持续收窄，从不「聪明」过头</h3>
+      <p>全球试错 → 拉美聚焦 → 美洲收窄 → 北美+欧洲收官。底层哲学一以贯之：「你不能对国家风险太聪明」「资源比政府长寿」。</p>
+
+      <h3>主线 3 · 品种偏好：从「金+银」到「铜为轴心」</h3>
+      <p>白银是起点，黄金是最长期信仰，<strong>铜在晚年升至「Doctor Copper（元素周期表最关键金属）」</strong>。长期回避铀/锂/油气/煤/铁矿石。</p>
+
+      <h3>主线 4 · 对中国：三重立场并行</h3>
+      <p><strong>需求端</strong>看多（2002 访华顿悟）；<strong>供给端</strong>欢迎中资接盘（2007 五矿江铜、2025 CMOC 两笔）；<strong>投资端</strong>回避亲赴中国（2017「stay away」）。</p>
+
+      <h3>主线 5 · 择时：黄金从「别卖」到「落袋」，但长期看多不变</h3>
+      <p>2019「第 4 局」→ 2020「第 5 局」→ 2025-09「别卖」→ <strong>2026-01「泡沫、late innings，落袋」</strong> → 2026-06 回到长期看多框架。</p>
+
+      <h3>主线 6 · 环保双轨：贯穿 40 年</h3>
+      <p>2010「柜子里的环保主义者」→ 2013「变色龙」→ 2018 BC Parks 基金会 → 2026 IPO 捐 750 万股（C$9,375 万）给 Sitka 基金会。</p>
+    </section>
+
+    <!-- 二 -->
+    <section class="chapter" id="ch2">
+      <h2><span class="zh-num">二</span>第一阶段（1980–1994）：创业与首度退出</h2>
+      <p class="footnote">主线：一个 29 岁的地质学家，靠「拥抱风险」在黄金熊市里创办第一家公司，用 Rosebud 金矿的发现换来第一次成功退出。</p>
+
+      <h3>2.1 本阶段的「理念」：勘探驱动、拥抱风险、讲故事融资</h3>
+      <blockquote class="quote">
+        <p class="en">"To be a good entrepreneur, you have to pursue risk, I think you have to embrace risk, not run away from it. And always think the glass is half full… Risk: I don't even know what the word means."</p>
+        <p class="zh">要做一个好的创业者，你必须去追求风险、拥抱风险，而不是逃避它。永远要往「半杯满」处想……风险？我甚至不知道这个词是什么意思。</p>
+      </blockquote>
+      <ul>
+        <li><strong>用别人的钱做「零成本期权」</strong>：1985 年黄金熊市里，Equinox Resources 首轮只融到 $14.5 万，来自母亲、兄弟、叔叔——<span class="en-inline">"when your mother starts investing in your company… you have to sort of focus"</span> <span class="zh-inline">（当你母亲都开始投你的公司，你就必须专注了）</span>。</li>
+        <li><strong>第一次「金融工程」</strong>：Equinox 用上市公司股票买下他自己的私营咨询公司 Beaty Geological——<span class="en-inline">"I bought myself – Equinox bought my Beaty Geological contract company"</span> <span class="zh-inline">（我买了自己——Equinox 买下了我的地质承包公司）</span>。</li>
+      </ul>
+
+      <h3>2.2 本阶段的「辖区」（选矿）：主动拥抱高政治风险</h3>
+      <p>这是 Beaty 辖区判断的<strong>起点 = 反面教材期</strong>。他在全球最危险的地方交了学费：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>国家</th><th>遭遇</th><th>时间</th></tr></thead>
+          <tbody>
+            <tr><td>利比里亚</td><td>内战 + 感染脑疟</td><td>1980s</td></tr>
+            <tr><td>海地</td><td>军事政变</td><td>1980s</td></tr>
+            <tr><td>俄罗斯</td><td>圣彼得堡「thugs」武力夺矿</td><td>约 1990s</td></tr>
+            <tr><td>玻利维亚</td><td>长达 8 年的勘探</td><td>1990s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote class="quote">
+        <p class="en">"Soon as that happened, a bunch of thugs from St. Petersburg came over and attacked our project a third of the way through construction, and eventually took the whole thing… I eventually realized enough was enough."</p>
+        <p class="zh">事情一发生，一群圣彼得堡的暴徒就冲过来，在项目建到三分之一时攻击了我们，最终把整个项目都夺走了……我一次次回俄罗斯抗争，最后终于意识到，够了。</p>
+      </blockquote>
+      <p><strong>这一阶段成为他日后「收窄」的直接动因</strong>——年轻时「全球试错」交的学费，换来晚年「不去 funny places」的决绝。</p>
+
+      <h3>2.3 资产全生命周期案例 ①：Rosebud 金矿（→ 卖给 Hecla）</h3>
+      <div class="lifecycle-flow">
+        <div class="lc-step"><span class="k">介入 1985</span>圈定 46 个矿权</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">去风险 1989–92</span>LAC 合资→买回 100% 权益→预可研</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">资源锁定 1993</span>P&amp;P 储量 512koz 金</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">出售 1994</span>US$76.3M 换股并入 Hecla</div>
+      </div>
+      <blockquote class="quote">
+        <p class="en">"We had our big break by discovering a gold mine in Nevada called Rosebud, which ultimately led to the sale of Equinox in 1994."</p>
+        <p class="zh">我们时来运转，是在内华达发现了一座叫 Rosebud 的金矿，它最终促成了 1994 年 Equinox 的出售。</p>
+      </blockquote>
+      <div class="callout"><span class="label">本阶段 → 当下承继</span>
+        <p style="margin:6px 0 0;">①「拥抱风险」是底色，但「俄罗斯/海地式风险」被终身标记为「浪费生命」——这是晚年辖区收窄的种子。② Rosebud 的「发现→预可研→100% 权益→储量锁定→出售」五步，就是日后 Lumina「打包系蝴蝶结」的原型。</p>
+      </div>
+    </section>
+
+    <!-- 三 -->
+    <section class="chapter" id="ch3">
+      <h2><span class="zh-num">三</span>第二阶段（1994–2005）：白银龙头 + 铜熊市抄底</h2>
+      <p class="footnote">主线：卖出 Equinox 后同时开两条战线——把 Pan American Silver 做成白银巨头，并在铜价 20 年大底用 Lumina Copper「扫货」10 座被抛弃的铜矿。逆向+平台化理念成型期。</p>
+
+      <h3>3.1 本阶段的「理念」：逆向抄底成型</h3>
+      <blockquote class="quote">
+        <p class="en">"In 2001, 2002 when I started the Lumina Copper game, it was a horrible time in the industry — all-time lows in real terms… everybody was crying, 'this is the end of copper, the end of mining.'… Well, that's the best time to buy, you cannot find a better time to buy than when everyone else wants to sell."</p>
+        <p class="zh">2001、2002 年我启动 Lumina Copper 这场游戏时，正是行业最惨的时候——经通胀调整后处于历史最低点……人人都在哀叹「这是铜的末日、矿业的末日」……但这正是买入的最佳时机，你找不到比「人人都想卖」更好的买点了。</p>
+      </blockquote>
+      <p><strong>决策触发</strong>：Chris Blain 2000 年的报告《五十年矿产发现趋势》（Fifty-Year Trends in Minerals Discovery）给了他「周期论文」启蒙——熊市削减勘探投入 → 未来供给缺口 → 财富属于在绝望期拿到优质探矿权的人。</p>
+
+      <h3>3.2 本阶段的「辖区」（选矿）：转向拉美聚焦</h3>
+      <p>经历全球试错后，本阶段把主战场收窄到<strong>拉美</strong>（秘鲁/智利/阿根廷/巴西）。这一转向的关键逻辑，在 2006 年采访里表述得最清楚（见第四章 4.2）。</p>
+
+      <h3>3.3 资产全生命周期案例 ②：Lumina Copper「抄底 10 铜矿」（→ 一拆四）</h3>
+      <div class="lifecycle-flow">
+        <div class="lc-step"><span class="k">介入 2001-12</span>决策做多铜，CRS 成立</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">扫货 2002–03</span>零成本收 10 铜矿（9/10 取 100%）</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">上市 2003-05</span>Lumina Copper 上市</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">拆分 2005</span>「一拆四」</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>项目</th><th>国家</th><th>拆分后归属</th><th>最终去向</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Regalito（今 Caserones）</td><td>智利</td><td>Regalito Copper</td><td>2006 卖 Pan Pacific（US$137M）</td></tr>
+            <tr><td>2</td><td>Relincho</td><td>智利</td><td>Global Copper</td><td>2008 卖 Teck</td></tr>
+            <tr><td>3</td><td>Vizcachitas</td><td>智利</td><td>Global Copper</td><td>随 Global Copper 卖 Teck</td></tr>
+            <tr><td>4</td><td>Galeno</td><td>秘鲁</td><td>Northern Peru Copper</td><td>2007/08 卖五矿+江铜（C$4.55 亿）</td></tr>
+            <tr><td>5</td><td>Pashpap</td><td>秘鲁</td><td>Northern Peru Copper</td><td>同上</td></tr>
+            <tr><td>6</td><td>Taca Taca</td><td>阿根廷</td><td>新 Lumina Copper</td><td>2014 卖 First Quantum（C$4.7 亿）</td></tr>
+            <tr><td>7</td><td>San Jorge</td><td>阿根廷</td><td>新 Lumina Copper</td><td>后归 Coro Mining</td></tr>
+            <tr><td>8</td><td>Redstone（Coates）</td><td>加拿大 NWT</td><td>Lumina Resources</td><td>随 Lumina Resources 卖 Western</td></tr>
+            <tr><td>9</td><td>Hushamu（Expo）</td><td>加拿大 BC</td><td>Lumina Resources</td><td>同上</td></tr>
+            <tr><td>10</td><td>Casino</td><td>加拿大育空</td><td>Lumina Resources</td><td>2006 并入 Western（今存续）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote class="quote">
+        <p class="en">"I ran around and bought all kinds of copper deposits that had no value, dirt cheap, big known deposits in the ground, that had no fatal flaws, metallurgy, social licence… And presto, a year and a half later, in 2003, the copper price started to chug up… We started working and drilling them and derisking them and sold every single one of them to big companies."</p>
+        <p class="zh">我到处收购那些「不值钱、便宜到离谱」的铜矿床——地下的、已探明的大矿，没有致命缺陷、选冶可行、社会许可到位……然后，一年半后的 2003 年，铜价开始上扬……我们开始钻探、去风险，然后把它们一个个卖给了大公司。</p>
+      </blockquote>
+      <div class="callout"><span class="label">本阶段 → 当下承继</span>
+        <p style="margin:6px 0 0;">①「只买 no fatal flaws 的大已知矿床」是 Beaty 选矿（广义+狭义）的<strong>总纲</strong>，20 年未变（2002→2023，✅）。②「一拆四」是其「平台化」——把便宜资产打包成多个可独立出售的上市公司——的教科书案例。</p>
+      </div>
+    </section>
+
+    <!-- 四 -->
+    <section class="chapter" id="ch4">
+      <h2><span class="zh-num">四</span>第三阶段（2005–2010）：平台化 + 密集退出</h2>
+      <p class="footnote">主线：Lumina「一拆四」后进入收割期，三年内连卖三家公司；同时跨界地热撞上教训。这也是他与中资买家结缘的起点。</p>
+
+      <h3>4.1 本阶段的「理念」：去风险六步 + 「打包系蝴蝶结」</h3>
+      <blockquote class="quote">
+        <p class="en">"You explore a little bit. You update the resource. You put some economics around the resource. You get rid of any fatal flaws… You secure the land title… You make sure the tax receipt is right… Then you basically take the project, wrap it up in a box, tie a beautiful bow around it and then put it for sale."</p>
+        <p class="zh">你稍作勘探，更新资源量，给资源套上经济模型，剔除一切致命缺陷……落实土地权属……确认税务安排无误……然后你就把这个项目放进盒子里，系上一个漂亮的蝴蝶结，摆上货架出售。</p>
+      </blockquote>
+
+      <h3>4.2 本阶段的「辖区」（选矿）：2006 年最早的拉美逐国点评</h3>
+      <p>Beaty 辖区判断最完整的早期版本（2006 David Pescod 采访）：「智利最安全、最先进 &gt; 秘鲁/墨西哥 &gt; 阿根廷 &gt; 巴西 &gt; 玻利维亚（难但有潜力）」；回避委内瑞拉（「disaster」）；厄瓜多尔「50-50」。</p>
+      <p class="footnote">⚠️ 时间属性：这份 2006 年排序里，「智利最安全」在 2020 年被他自己推翻（见 5.2 智利反转）；其余大体沿用至今。</p>
+
+      <h3>4.3 资产全生命周期案例 ③：Galeno → 五矿 + 江铜（2007 C$4.55 亿）</h3>
+      <div class="lifecycle-flow">
+        <div class="lc-step"><span class="k">介入 2002–03</span>随 Lumina 抄底</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">划入 2005-05</span>一拆四入 Northern Peru</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">去风险 2007-01</span>预可研完成</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">出售 2007/08</span>C$4.55 亿卖五矿+江铜</div>
+      </div>
+      <blockquote class="quote">
+        <p class="en">"Minmetals and Jiangxi presented us with the best offer… Both are large companies with extensive experience in the copper sector, and are fully capable of developing Galeno into one of the world's premier copper mining operations. I support their offer to acquire our company and encourage all shareholders to do so as well."</p>
+        <p class="zh">五矿和江铜向我们提出了最优的报价……这两家都是大型企业，在铜行业经验丰富，完全有能力把 Galeno 开发成世界一流的铜矿。我支持他们收购我们公司的报价，并鼓励全体股东同样予以支持。</p>
+      </blockquote>
+      <p><strong>中文官方媒体独立佐证</strong>：2008-01-30 五矿江铜在京庆典，中国经济网明确记载「北秘鲁铜业公司原董事长罗斯·贝蒂（Ross Beaty）分别致辞」；新浪财经 2007-12-08 亦载此背书规范中译。</p>
+
+      <h3>4.4 本阶段的「教训」：Alterra 地热跨界失败</h3>
+      <blockquote class="quote">
+        <p class="en">"I thought, 'geothermal power, that's the way to go'. Then when I blew through $100 million drilling dry holes, I sort of thought maybe this isn't such a good business after all… It was a triumph of idealism over practicality or reality."</p>
+        <p class="zh">我想「地热发电，这才是方向」。然后当我烧掉 1 亿美元打出一堆干井之后，我才隐约觉得，也许这压根不是门好生意……这是理想主义战胜了务实（现实）。</p>
+      </blockquote>
+      <div class="callout"><span class="label">本阶段 → 当下承继</span>
+        <p style="margin:6px 0 0;">① 去风险六步 + 打包系蝴蝶结，是其「资产全生命周期」标准操作，直接复用于晚年 Lumina Metals。② Galeno 卖给五矿江铜，奠定「欢迎中资接盘」底色。③ Alterra 是他罕见的跨界失败，也是「能力圈」意识觉醒的节点。</p>
+      </div>
+    </section>
+
+    <!-- 五 -->
+    <section class="chapter" id="ch5">
+      <h2><span class="zh-num">五</span>第四阶段（2010–2024）：规模整合与上市</h2>
+      <p class="footnote">主线：从「打包出售」转向「做大规模 + 上市」——Equinox Gold 组建与多起 roll-up，是「规模决定一切」理念的落地。辖区进一步收窄到「美洲」。</p>
+
+      <h3>5.1 本阶段的「理念」：规模决定一切</h3>
+      <blockquote class="quote">
+        <p class="en">"Why have we focused on scale? Because it creates better resilience and diversification against risk, better valuation multiples, better liquidity, a stronger financial condition, and most importantly, greater leverage to gold."</p>
+        <p class="zh">为什么我们聚焦规模？因为规模带来更强的抗风险韧性与分散化、更好的估值倍数、更好的流动性、更稳健的财务状况，以及最重要的——对黄金更大的杠杆。</p>
+      </blockquote>
+
+      <h3>5.2 本阶段的「辖区」（选矿）：美洲收窄 + 「智利反转」</h3>
+      <ul>
+        <li><strong>2020 年明确「只在美洲」</strong>（NOIC 投资大会，生涯转折点）：
+          <span class="en-inline">"Equinox 只在美洲（北美+南美），不去 funny places，life's too short, I'd like to die in my bed."</span>
+          <span class="zh-inline">（Equinox 只在美洲，不去那些「怪地方」——人生苦短，我想死在自己床上。）</span>
+        </li>
+        <li><strong>「智利最安全」的反转</strong>（2006 → 2020）：
+          2006「智利是拉美最安全的辖区」→ 2020 <span class="en-inline">"Chile's suddenly turning on its ear"</span> <span class="zh-inline">（智利突然翻脸）</span>。
+          <strong>这是 Beaty 辖区判断里最明确的一次自我反转</strong> <span class="tag warn">⚠️</span>，动因是智利政治左转、拟大幅加税。</li>
+      </ul>
+
+      <h3>5.3 本阶段的「择时」：黄金「第 4 局」→「第 5 局」</h3>
+      <ul>
+        <li>2019（第 4 局）：<span class="en-inline">"I would say we're in the 4th inning of a bull market with lots of room yet to go… the last few innings we're going to see gold go bananas."</span> <span class="zh-inline">（我们正处于牛市第 4 局，还有很大空间……最后几局金价会「疯涨」。）</span></li>
+        <li>2020（第 5 局）：<span class="en-inline">"A secular bull market in gold and silver began in 2016 and is now in its fifth inning… I can see it going well over US$2,000."</span> <span class="zh-inline">（黄金白银长期牛市始于 2016，如今第 5 局……我看它能远超 2000 美元。）</span></li>
+      </ul>
+
+      <h3>5.4 本阶段 → 当下承继（含 Cangrejos → CMOC 铺垫）</h3>
+      <p><strong>Cangrejos（厄瓜多尔）→ CMOC</strong> 交割在 2025-06，但其「介入→去风险」贯穿本阶段：Beaty 重仓厄瓜多尔（2006「50-50」→ 实际重仓），Lumina Gold 把 Cangrejos 推进到可开发阶段，最终 2025 年以 C$5.81 亿（溢价 41%）卖给 CMOC——<strong>「把项目摆上拍卖台，谁有资本+开发能力就卖给谁」的又一实证</strong>。</p>
+      <p>规模整合多起 roll-up：Equinox Gold 2017 底组建 → 2019 与 Leagold 合并 → 后续 Calibre、Premier 等。但 Beaty 对 M&amp;A 有「言行不一」的矛盾（见第十章矛盾点 3）。</p>
+    </section>
+
+    <!-- 六 -->
+    <section class="chapter" id="ch6">
+      <h2><span class="zh-num">六</span>第五阶段（2024–2026）：主动退出收官</h2>
+      <p class="footnote">主线：Beaty 进入「逐步让位」的终章——卸任、合并、卖资产、聚焦波兰最后一场大仗。明确「cycling out of this mining game」，但反复强调「not stepping away」「一股不卖」。</p>
+
+      <h3>6.1 本阶段的「理念」：主动退出 + 「黄金=货币」本体论</h3>
+      <blockquote class="quote">
+        <p class="en">"I really am cycling out of this mining game… it's been a great run, but you can't do it forever."</p>
+        <p class="zh">我是真的在逐步退出矿业这场游戏了……这是一段非常精彩的旅程，但你不可能永远干下去。</p>
+      </blockquote>
+      <blockquote class="quote">
+        <p class="en">"While I am stepping down as Chairman, I am not stepping away, and I look forward to contributing to the company's continued success as Special Advisor to the Board."</p>
+        <p class="zh">虽然我卸任了董事长，但我并没有真正离开，我期待以董事会特别顾问的身份继续为公司贡献。</p>
+      </blockquote>
+      <ul>
+        <li><strong>一股不卖</strong>（2026-07-23 股东会）：<span class="en-inline">"not selling a single share"</span> <span class="zh-inline">（一股不卖）</span>；此前电话会亦说 <span class="en-inline">"zero intention to sell any of my shares"</span> <span class="zh-inline">（我无意卖出任何股份）</span>。</li>
+        <li><strong>「黄金=货币」本体论</strong>（2026-05）：<span class="en-inline">"Gold is money. It's been money for 5,000 years, and it's being used as money as much today as ever."</span> <span class="zh-inline">（黄金就是货币。5000 年来它一直是货币，今天它被当作货币使用的程度丝毫不亚于以往。）</span></li>
+      </ul>
+
+      <h3>6.2 本阶段的「择时」：罕见的「落袋」反转</h3>
+      <blockquote class="quote">
+        <p class="en">"You only know you're at the top after the fact. From my standpoint today, it is. It's a bubble, it's a frothy market… It is time to take some money off the table. I think probably not all, because I think we have more room to run, but we're not in the early innings of this game, we're in the late innings."</p>
+        <p class="zh">你只有在事后才知道自己身处顶部。以我今天的判断，是的，这就是顶部——这是个泡沫，市场过热了……是时候落袋一部分利润了。我猜不用全卖，因为还有上行空间，但我们已不在早期，而是后期。</p>
+      </blockquote>
+      <p>对比 2025-09 的「别卖」：<span class="en-inline">"It really is a secular breakout… When it happens, do not sell. Resist the temptation to sell…"</span> <span class="zh-inline">（这真的是一次长期结构性突破……当它发生时，别卖，忍住卖出的冲动。）</span> <strong>演变：短期谨慎（落袋）与长期结构看多并行，并不矛盾。</strong></p>
+
+      <h3>6.3 本阶段的「品种」：铜升至「Doctor Copper」+ AI 数据中心新论点</h3>
+      <blockquote class="quote">
+        <p class="en">"If you look at the whole periodic table and look at what is critical and what is not critical there is nothing more critical than copper. It is called Doctor Copper because it is so linked to the economy of the world."</p>
+        <p class="zh">如果你看遍整张元素周期表，看什么关键、什么不关键，没有什么比铜更关键。它被称为「铜博士」，因为它与世界经济的关联如此紧密。</p>
+      </blockquote>
+      <ul>
+        <li><strong>AI 数据中心（2026 新增论点）</strong>：<span class="en-inline">"This particular cycle is also driven by really unique things that we've never seen before [including] this AI revolution requiring massive data centres… So its demand is going parabolic and it's very hard to change supply quickly."</span> <span class="zh-inline">（这一轮周期还被前所未见的因素驱动，包括 AI 革命要求全球建设海量数据中心……需求抛物线式增长，而供给很难快速改变。）</span></li>
+        <li><strong>「供给范式之变」</strong>：<span class="en-inline">"It used to take five-to-10 years to go from discovery to production. Now it's taking 15, 20, 25 years, and that really does change the paradigm for supply development."</span> <span class="zh-inline">（过去从发现到投产需 5 到 10 年，现在需 15、20、25 年，这真的改变了供给发展的范式。）</span></li>
+      </ul>
+
+      <h3>6.4 资产全生命周期案例 ④：Lumina Metals 波兰 Nowa-Sól（目前仍在他名下）</h3>
+      <div class="lifecycle-flow">
+        <div class="lc-step"><span class="k">介入 2011</span>创办 Miedzi Copper</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">发现 2014</span>首钻，圈定三大矿床</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">许可风波 2015</span>特许权被撤→PCA 仲裁</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">上市 2026</span>TSX IPO + 华沙二次上市</div>
+        <div class="lc-arrow">→</div>
+        <div class="lc-step"><span class="k">当前 2026</span>PEA→PFS，<strong>未出售</strong></div>
+      </div>
+      <ul>
+        <li><strong>Nowa Sól 资源</strong>：M&amp;I 604 Mt @ 1.24% Cu、38 g/t Ag；Beaty 称可建成「全球第二大原生银矿 + 欧洲第二大铜生产商」。</li>
+        <li><strong>关键风险</strong>：波兰铜银有效税率约 <span class="tag warn">70%</span>（vs 美加智 30–40%），CEO 明确「没有进一步税改就不建矿」。</li>
+      </ul>
+      <blockquote class="quote">
+        <p class="en">"However you cut it, we'll have the largest silver resources of any company on the planet, I think, and that will command a premium valuation once we get into that silver retail crowd who I know so well from having founded Pan American Silver."</p>
+        <p class="zh">无论你怎么算，我想到时我们将拥有全球任何公司中最大的银资源，而这会在我们进入「银零售投资者」群体后获得估值溢价——这个群体我很熟，因为我创办了 Pan American Silver。</p>
+      </blockquote>
+
+      <h3>6.5 「名下项目是否其实也准备出售？」——判断</h3>
+      <div class="callout"><span class="label">分析结论（非 Beaty 原话）</span>
+        <ol style="margin:6px 0 0 20px;">
+          <li><strong>Lumina Metals（波兰）：大概率「待出售」，但非「现在」</strong>——Beaty 一生模板就是「介入→去风险→卖」，波兰项目已走到 IPO，本质是「放上货架前的最后包装」，但当前处 PEA→PFS + 许可关键期 + 70% 铜税未改革，出售时点取决于去风险进度。</li>
+          <li><strong>Equinox Gold 剩余持股：短期不卖</strong>——「一股不卖」三次表态一以贯之，合并后刚进入整合期。</li>
+          <li><strong>Pan American Silver：长期持有但已让位</strong>——转由独立董事长治理，无减持证据。</li>
+          <li><strong>不在待售清单的</strong>：Alterra/Innergex 环保遗产、Sitka 基金会——「能在我身后存续」的传承，非矿业套利范畴。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 七 -->
+    <section class="chapter" id="ch7">
+      <h2><span class="zh-num">七</span>对中国与中资买家的态度（贯穿全文的增量维度）</h2>
+
+      <h3>7.1 总根子：2002 年访华「顿悟」</h3>
+      <blockquote class="quote">
+        <p class="en">"I had a real epiphany when I went to China in 2002… I was just blown away by the development of China… that translates into commodity consumption… China was emerging as an enormous consumer of commodities."</p>
+        <p class="zh">2002 年我去中国时，经历了一次真正的顿悟……中国的发展让我目瞪口呆……那会转化为大宗商品的消费……中国正在崛起为大宗商品的超级消费国。</p>
+      </blockquote>
+      <p><strong>解读</strong>：他不是因为信任某个买家而卖，而是 2002 年就认定中国是商品超级周期的需求发动机，中资买家的购买力与开发能力天然契合他的退出模型。</p>
+
+      <h3>7.2 三重立场并行（不矛盾）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>立场</th><th>时间</th><th>表述</th><th>有效性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>需求端看多中国</strong></td><td>2002 至今</td><td>中国是大宗商品超级消费国</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td><strong>供给端欢迎中资接盘</strong></td><td>2007 / 2025</td><td>卖 Galeno 给五矿江铜、卖 Lumina Gold/巴西给 CMOC</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td><strong>投资端回避亲赴中国</strong></td><td>2017</td><td>"stay away from China"（外资身份劣势）</td><td><span class="tag ok">✅ 语境限定</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>2017 年（MINING.COM）：<span class="en-inline">"stay away from China"</span>（远离中国，投资层面）；2018 年（Stratum）：<span class="en-inline">"China's tough"</span>（中国很难）；但 2025 年批评加拿大限制中资（In the Money）：<span class="en-inline">"限制中资投资加拿大矿业是 wrongheaded（误入歧途）"</span>。</p>
+      <p><strong>关键监管结论</strong>：Beaty 系<strong>黄金/白银资产</strong>卖给中资未受阻碍——因为黄金/白银在加拿大<strong>不属于「关键矿产」</strong>，不触碰 ICA/国家安全审查红线。这解释了 2025 年 CMOC 能连续拿下其两笔黄金资产，也构成对本案（Lumina Metals，铜银）的<strong>直接交易先例</strong>。</p>
+    </section>
+
+    <!-- 八 -->
+    <section class="chapter" id="ch8">
+      <h2><span class="zh-num">八</span>当下观点总览（2026）</h2>
+      <p class="footnote">压轴章节——按主题给出 Beaty 截至 2026 年的当前立场 + 演变轨迹 + 是否仍有效。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>主题</th><th>当前立场（2026）</th><th>演变轨迹</th><th>有效性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>投资理念</strong></td><td>周期套利 + 资产去风险 + 平台化退出；晚期加「纪律化资本配置 + 股东回报」</td><td>博发现 → 抄底打包 → 规模整合 → 主动退出</td><td><span class="tag ok">✅ 内核 40 年未变</span></td></tr>
+            <tr><td><strong>司法辖区</strong></td><td>北美 + 欧洲（波兰）收官；「矿床质量 &gt; 辖区纸面风险」</td><td>全球试错 → 拉美 → 美洲 → 北美+欧洲</td><td><span class="tag ok">✅ 收窄是主动选择</span></td></tr>
+            <tr><td><strong>品种</strong></td><td>铜（Doctor Copper，AI+电气化）为轴心；金长期看多（=货币）；银「泡沫」谨慎</td><td>金+银 → 铜轴心；银 2026 转谨慎</td><td><span class="tag warn">⚠️ 银转谨慎是新变化</span></td></tr>
+            <tr><td><strong>黄金择时</strong></td><td>短期「落袋部分」，长期「美元信心+债务」看多</td><td>别卖(2025-09) → 落袋(2026-01) → 长期看多(2026-06)</td><td><span class="tag warn">⚠️ 短期与长期并行</span></td></tr>
+            <tr><td><strong>对中国</strong></td><td>需求看多 + 欢迎中资接盘 + 回避亲赴投资</td><td>三重立场并行，从不矛盾</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td><strong>选矿（狭义选冶）</strong></td><td>选冶是「致命缺陷」闸门；偏好选冶友好矿床（波兰铜页岩）</td><td>总纲 20 年未变（2002→2023）</td><td><span class="tag ok">✅</span></td></tr>
+            <tr><td><strong>名下项目</strong></td><td>Lumina Metals 波兰「待出售但非现在」；Equinox 持股「不卖」</td><td>一贯「去风险→出售」模板</td><td><span class="tag warn">⚠️ 分析结论</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 九 -->
+    <section class="chapter" id="ch9">
+      <h2><span class="zh-num">九</span>资产全生命周期附录（全景表）</h2>
+      <p class="footnote">Beaty 参与过的核心资产，按「介入 → 去风险 → 出售」全景呈现（详表见 lifecycle/00 文件）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>公司/资产</th><th>介入</th><th>退出</th><th>对价</th><th>买家</th></tr></thead>
+          <tbody>
+            <tr><td>Equinox Resources（Rosebud）</td><td>1985</td><td>1994</td><td>US$76.3M</td><td>Hecla</td></tr>
+            <tr><td>Regalito（Caserones）</td><td>2002-03</td><td>2006</td><td>US$137M</td><td>Pan Pacific Copper</td></tr>
+            <tr><td>Northern Peru（Galeno）</td><td>2002-03</td><td>2007/08</td><td>C$4.55 亿</td><td>五矿+江铜</td></tr>
+            <tr><td>Global Copper（Relincho/Vizcachitas）</td><td>2002-03</td><td>2008</td><td>C$4.15 亿</td><td>Teck Cominco</td></tr>
+            <tr><td>Lumina Resources（Casino 等）</td><td>2002-03</td><td>2006</td><td>C$30.49M</td><td>Western Copper</td></tr>
+            <tr><td>Lumina Copper（Taca Taca）</td><td>2002-03</td><td>2014</td><td>C$4.7 亿</td><td>First Quantum</td></tr>
+            <tr><td>Magma/Alterra（地热）</td><td>2008</td><td>2018</td><td>C$11 亿</td><td>Innergex</td></tr>
+            <tr><td>Anfield（Coringa 等）</td><td>2005</td><td>2017</td><td>换股并入</td><td>Equinox Gold</td></tr>
+            <tr><td>Lumina Gold（Cangrejos）</td><td>2000s</td><td>2025</td><td>C$5.81 亿</td><td>CMOC</td></tr>
+            <tr><td>Equinox 巴西资产（Aurizona 等）</td><td>2017 整合</td><td>2026-01</td><td>US$10.15 亿</td><td>CMOC</td></tr>
+            <tr><td><strong>Lumina Metals（Nowa-Sól）</strong></td><td>2011</td><td><strong>未出售</strong></td><td>—</td><td>（Beaty 名下）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>累计战绩口径</strong>：CMHF 官方「13 家公司创造约 $60 亿加元股东价值（自 1994）」；Beaty 自述「14 家公司里 13 家巨大成功，IPO 起至少 10 倍股」（Stratum 2018）。</p>
+    </section>
+
+    <!-- 十 -->
+    <section class="chapter" id="ch10">
+      <h2><span class="zh-num">十</span>矛盾点与信源不确定性（供引用时谨慎）</h2>
+      <ol>
+        <li><strong>出生年份</strong>：CMHF/Northern Miner 记 1951；biography.wiki 记 1954。以 CMHF 官方「1951」为准。</li>
+        <li><strong>累计战绩口径</strong>：CMHF「13 家 $6B」vs Beaty 自述「14 家 13 家 10 倍股」——差异源于是否含 Alterra/早期公司。</li>
+        <li><strong>M&amp;A「言行不一」</strong>：一生靠并购整合，却 2025-09 公开警告并购「上瘾、毁股东价值」。</li>
+        <li><strong>「智利最安全」反转</strong>（2006→2020）、「远离中国」与「卖资产给中资」的张力、「厄瓜多尔 50-50→重仓」——均为历史时点判断，引用必须标注年份。</li>
+        <li><strong>研究空白</strong>：未找到 Beaty 对铀/稀土的近期表态、Osino 精确套现金额、「Chinese mining firms scooping up assets」逐字转录。</li>
+        <li><strong>二手转写风险</strong>：部分二手转写有拼写误差（"Ross Bey"→Beaty、"semi copper"→copper），引用以官网/主流媒体为准。</li>
+      </ol>
+    </section>
+
+    <!-- 十一 -->
+    <section class="chapter" id="ch11">
+      <h2><span class="zh-num">十一</span>高价值信源清单（按价值排序，前 15）</h2>
+      <ol>
+        <li>The Northern Miner《Deconstructing Ross Beaty》（2022-05）— 最完整生涯自述</li>
+        <li>Resourcing Tomorrow / IMARC《Big new copper mines changing 'paradigm for supply'》（2026-06-12）— 铜「15–25 年供给范式」+「Doctor Copper」+AI 论点</li>
+        <li>Equinox Gold 合并电话会 transcript（2026-05-13，一手）—「黄金=货币」「规模论」「一股不卖」</li>
+        <li>Kitco News《Mining titans exclusive: Beaty &amp; Quartermain》（2026-01-28）— 泡沫/后期局反转</li>
+        <li>Kitco News《Beaty calls gold rally a 'secular breakout'》（2025-09-04）—「别卖」+「关键矿产」批评</li>
+        <li>In the Money《CEO Summer Series: Ross Beaty》（2025-08-12）— Equinox 认错 + 政策立场</li>
+        <li>Stratum International《Interviews with Mining Greats》（2018-12）—「14 家 13 家 10 倍股」+ 选领导者标准</li>
+        <li>Northern Peru Copper FORM 6-K（2007-12）— 对中资背书一手文件</li>
+        <li>MINING.COM《Ross Beaty: "Trump will be forgotten"》（2017-08）— 国家风险哲学 + 看衰清单</li>
+        <li>Stockhouse《Mining legend Ross Beaty lays out his recipe》（2015-04）— 理念最集中自述</li>
+        <li>Mining Stock Education 播客（2019/2020/2026-05）— 棒球局数 + Lumina Metals 银资源</li>
+        <li>NOIC 2020 转录 — 「只在美洲，不去 funny places」辖区收窄转折点</li>
+        <li>Hecla 8-K / 10-K/A（1994）— Rosebud 出售 SEC 一手</li>
+        <li>中国经济网（2008-02-05）+ 新浪财经（2007-12-08）— 五矿江铜交易中文交叉验证</li>
+        <li>Globe and Mail《Between a rock and a green place》（约 2013）— 环保「变色龙」完整语境</li>
+      </ol>
+      <p class="footnote">（完整信源见 sources/ 各专题文件文末清单，含一手/权威/二手三级分级。）</p>
+    </section>
+
+    <p class="footnote" style="margin-top:10px; text-align:center;">本报告仅供内部研究参考，不构成投资建议。所有观点均为对公开采访/报道/监管文件的整理归纳，原始出处以 sources/ 与 lifecycle/ 目录为准。</p>
+
+  </main>
+</div>
+
+<script>
+  const links = Array.from(document.querySelectorAll('#toc a[href^="#"]'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
